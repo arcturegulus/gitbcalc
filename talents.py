@@ -1,4 +1,5 @@
 import argparse
+from math import ceil
 import numpy as np
 from tabulate import tabulate
 
@@ -119,3 +120,9 @@ is minimally needed, don't convert your books yet if you're still farming for
 more. That's because less than 3 of any lower-tier book is not conversible, so
 you'll have to end up doing ~1-3 more runs if you need more higher-tier books.
 """)
+# from https://docs.google.com/spreadsheets/d/e/2PACX-1vTiAN0_E-IdKHUQYJ5EUrMD7h7Vb08J1xCYNJGmIhxXus98YBjKTP-Xb8Ljoyc3bQ7WhrcROVorcWjY/pubhtml#
+average_books_per_run = [2.20, 1.97, 0.23]
+average_tier_3_books_per_run = (average_books_per_run[0] / 9) + (average_books_per_run[1] / 3) + average_books_per_run[2]
+runs_remaining_estimate = ceil(books_needed[2] / average_tier_3_books_per_run)
+print(f"Roughly estimating {runs_remaining_estimate} more run" f"{'s' if runs_remaining_estimate != 1 else ''}" " needed")
+print()
