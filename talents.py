@@ -9,7 +9,7 @@ NUM_BOOK_TIERS = 3      # three tiers: Teachings, Guide, Philosophies
 CONVERSION_FACTOR = 3   # 3 lower-tier books for 1 higher-tier book
 
 parser = argparse.ArgumentParser(
-    prog="genshin-talent-books-calculator",
+    prog="gitbcalc",
     usage="talents.py current_levels target_levels [-b|--books BOOKS] [-a|--allow-conversion]"
 )
 
