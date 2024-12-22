@@ -10,12 +10,12 @@ CONVERSION_FACTOR = 3   # 3 lower-tier books for 1 higher-tier book
 
 parser = argparse.ArgumentParser(
     prog="gitbcalc",
-    usage="talents.py current_levels target_levels [-b|--books BOOKS] [-a|--allow-conversion]"
+    usage="talents.py <CURRENT_LEVELS> <TARGET_LEVELS> [-b | --books <BOOKS>] [-a | --allow-conversion]"
 )
 
-parser.add_argument("current_levels",
+parser.add_argument("CURRENT_LEVELS",
                     help="comma-separated array of current Talent levels")
-parser.add_argument("target_levels",
+parser.add_argument("TARGET_LEVELS",
                     help="comma-separated array of target Talent levels")
 parser.add_argument("-b", "--books",
                     help="comma-separated array of available Talent books")
@@ -23,8 +23,8 @@ parser.add_argument("-a", "--allow-conversion", action="store_true",
                     help="convert excess available Talent books")
 args = parser.parse_args()
 
-start_levels = np.array([int(i) for i in args.current_levels.split(",")])
-end_levels = np.array([int(i) for i in args.target_levels.split(",")])
+start_levels = np.array([int(i) for i in args.CURRENT_LEVELS.split(",")])
+end_levels = np.array([int(i) for i in args.TARGET_LEVELS.split(",")])
 if start_levels.size != end_levels.size:
     raise ValueError("number of current and target Talent levels do not match")
 
